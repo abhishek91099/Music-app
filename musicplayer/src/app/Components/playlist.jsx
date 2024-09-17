@@ -1,13 +1,9 @@
-export const Playlist =()=>{
-
-    const mylist=[
-        {'name':'kitne dafe','duration':'','Singer':'Mohit chauhan'},
-        {'name':'kitne dafe','duration':'','Singer':'Mohit chauhan'},
-        {'name':'kitne dafe','duration':'','Singer':'Mohit chauhan'},
-        {'name':'kitne dafe','duration':'','Singer':'Mohit chauhan'},
-    ]
+export const Playlist =({name,duration,singer})=>{
     return(
-
-    <h1>playlist</h1>
+    <div className="flex flex-row w-fit items-center justify-start border">
+        <h1 className="w-fit p-2" >{name}</h1>
+        <h1 className="w-fit p-2">{duration}</h1>
+        <h1 className="w-fit p-2" >{singer}</h1>
+    </div>
 )
 }
