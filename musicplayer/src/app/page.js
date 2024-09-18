@@ -10,22 +10,24 @@ export default function Home() {
     {'id':4,'name':'kitne dafe','duration':'2','Singer':'Mohit chauhan'},
 ]
   return (
-    <div className='flex flex-col h-screen '>
+    <div className='flex flex-col h-screen w-screen overflow-hidden'>
     
     
-   <div className='flex flex-row  h-dvh w-full'>
-   <Sidebar/>
-   <div className='border ml-2 '>
-    {mylist.map((item)=>{
-      return(
+    <div className='flex flex-row flex-grow w-screen'>
+    <div className="w-1/4 h-full">
+          <Sidebar />
+        </div>
+      <div className='border w-3/4 overflow-auto'>
+        {mylist.map((item)=>{
+          return(
 
-    <Playlist key={item.id} name={item.name} duration={item.duration} singer={item.Singer}/>
-    )})
-    }
-  </div>
+        <Playlist key={item.id} name={item.name} duration={item.duration} singer={item.Singer}/>
+        )})
+        }
+      </div>
   
     </div>
-    <div className='ml-2'>
+    <div className='bg-purple-1000 outline-none h-1/6'>
 
 <Musicbar/>
 </div>
