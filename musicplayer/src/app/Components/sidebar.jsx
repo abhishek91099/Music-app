@@ -47,36 +47,36 @@ import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col bg-purple-950 text-white w-full h-full justify-center items-center">
-      <div className="h-1/3 flex p-4 justify-start w-full px-16 mb-10">
-        <img src='music_10388203.png' className='justify-start'/>
+    <div className="flex flex-col bg-purple-950 text-white w-full h-full justify-start pt-5 items-center">
+      <div className="flex justify-start w-full px-16 ">
+        <img src='music_10388203.png' className='justify-start h-30 w-20'/>
       </div>
 
       {/* Section for the icons and labels */}
       <div className="h-1/3 flex flex-col justify-center w-full">
-        <div className="mx-10 flex items-center my-6">
-          <div className="flex w-1/4 justify-center">
+        <div className="mx-10 flex items-center my-2">
+          <div className="flex w-1/4 justify-center items-center">
             <MusicNoteIcon />
           </div>
           <div className="flex w-3/4">Music</div>
         </div>
 
-        <div className="mx-10 flex items-center my-6">
-          <div className="flex w-1/4 justify-center">
+        <div className="mx-10 flex items-center my-2">
+          <div className="flex w-1/4 justify-center items-center">
             <RecordVoiceOverIcon />
           </div>
           <div className="flex w-3/4">Singer</div>
         </div>
 
-        <div className="mx-10 flex items-center my-6">
-          <div className="flex w-1/4 justify-center">
+        <div className="mx-10 flex items-center my-2">
+          <div className="flex w-1/4 justify-center items-center">
             <MicIcon />
           </div>
           <div className="flex w-3/4">Find</div>
         </div>
 
-        <div className="mx-10 flex items-center my-6">
-          <div className="flex w-1/4 justify-center">
+        <div className="mx-10 flex items-center my-2">
+          <div className="flex w-1/4 justify-center items-center">
             <CollectionsBookmarkIcon />
           </div>
           <div className="flex w-3/4">Collection</div>

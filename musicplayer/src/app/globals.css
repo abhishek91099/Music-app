@@ -2,3 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .custom-range::-webkit-slider-thumb {
+      appearance: none;
+      width: 0; /* Hide by default */
+      height: 0;
+    }
+  
+    .custom-range:hover::-webkit-slider-thumb,
+    .custom-range:active::-webkit-slider-thumb {
+      width: 20px;
+      height: 20px;
+      background-color: blue;
+      border-radius: 9999px; /* Fully round */
+      cursor: pointer;
+    }
+    
+    .custom-range::-moz-range-thumb {
+      width: 0;
+      height: 0;
+    }
+  
+    .custom-range:hover::-moz-range-thumb,
+    .custom-range:active::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background-color: blue;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+  }
+  
