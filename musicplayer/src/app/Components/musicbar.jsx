@@ -12,7 +12,7 @@ export const Musicbar = () => {
           <div className="text-purple-500 text-[12px]">kendrick Lamar and SZA</div>
         </div>
       </div>
-      <div className="w-3/4 ">
+      <div className="w-3/4 h-full ">
         <CustomAudioPlayer/>
       </div>
       <div></div>

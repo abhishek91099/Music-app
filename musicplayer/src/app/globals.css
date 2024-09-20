@@ -1,11 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 @layer components {
     .custom-range::-webkit-slider-thumb {
       appearance: none;
-      width: 0; /* Hide by default */
+      width: 0; 
       height: 0;
     }
   
@@ -14,7 +14,7 @@
       width: 20px;
       height: 20px;
       background-color: blue;
-      border-radius: 9999px; /* Fully round */
+      border-radius: 9999px;
       cursor: pointer;
     }
     
@@ -22,14 +22,14 @@
       width: 0;
       height: 0;
     }
-  
-    .custom-range:hover::-moz-range-thumb,
+   */
+    /* .custom-range:hover::-moz-range-thumb,
     .custom-range:active::-moz-range-thumb {
       width: 20px;
       height: 20px;
       background-color: blue;
       border-radius: 9999px;
       cursor: pointer;
-    }
-  }
+    } */
+  /* } */
   

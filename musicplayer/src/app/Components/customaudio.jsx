@@ -1,5 +1,9 @@
 'use client'
 import { useState, useRef, useEffect } from 'react';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
 
 export const CustomAudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,13 +34,36 @@ export const CustomAudioPlayer = () => {
   };
 
   return (
-    <div className="custom-audio-player bg-fuchsia-50 p-4 rounded-lg flex flex-col items-center w-80">
-      <button
+    <div className=" bg-[#2a0f41] p-4 rounded-lg flex flex-row items-center  h-full">
+      <input
+        type="range"
+        value={progress}
+        onChange={handleSeek}
+        className="w-40 h-2 cursor-pointer bg-yellow-500 appearance-none"
+        //  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+        min="0"
+        max="100"
+        style={{
+          background: `linear-gradient(to right, yellow ${progress}%, #d1d5db ${progress}%)`,
+        }}
+      />
+      <div className='flex flex-row '>
+      {/* <button
         onClick={togglePlayPause}
         className="text-white bg-blue-600 p-2 rounded-full mb-4"
-      >
-        {isPlaying ? 'Pause' : 'Play'}
-      </button>
+      > */}
+      <SkipPreviousIcon/>
+      <div className='flex flex-col cursor-pointer ' onClick={togglePlayPause}>
+      {isPlaying ?<PauseIcon/> 
+      
+      :<PlayArrowIcon/>
+       }
+       </div>
+      <SkipNextIcon/> 
+      
+        {/* {isPlaying ? 'Pause' : 'Play'}
+      </button> */}
+      </div>
       <audio
         ref={audioRef}
         src="/audio.mp3"
@@ -45,19 +72,55 @@ export const CustomAudioPlayer = () => {
       ></audio>
 
       {/* Progress Bar */}
-      <input
-        type="range"
-        value={progress}
-        onChange={handleSeek}
-        className="w-full h-2 cursor-pointer custom-range"
-        min="0"
-        max="100"
-        style={{
-          background: `linear-gradient(to right, yellow ${progress}%, grey ${progress}%)`,
-        }}
-      />
 
-      <div className="mt-2 text-gray-700">Now Playing: Bol Do Na Zara</div>
+      <style jsx>{`
+        input[type='range'] {
+          -webkit-appearance: none;
+          margin: 10px 0;
+          width:500px;
+        }
+        input[type='range']:focus {
+          outline: none;
+        }
+        input[type='range']::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: yellow;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+        input[type='range']::-moz-range-thumb {
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: yellow;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+        input[type='range']::-ms-thumb {
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: yellow;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+        .group:hover input[type='range']::-webkit-slider-thumb {
+          opacity: 1;
+        }
+        .group:hover input[type='range']::-moz-range-thumb {
+          opacity: 1;
+        }
+        .group:hover input[type='range']::-ms-thumb {
+          opacity: 1;
+        }
+      `}</style>
+     
     </div>
   );
 };
