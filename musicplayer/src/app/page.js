@@ -1,5 +1,6 @@
 import {Musicbar} from "./Components/musicbar";
 import {Playlist} from "./Components/playlist";
+import {Rightsidebar} from "./Components/rightsidebar";
 import {Sidebar} from "./Components/sidebar";
 export default function Home() {
   const mylist = [
@@ -22,7 +23,7 @@ export default function Home() {
 
         </div>
         <div className="w-1/4 h-full">
-          <Sidebar />
+          <Rightsidebar/>
         </div>
       </div>
       <div className="bg-purple-1000 outline-none ">
