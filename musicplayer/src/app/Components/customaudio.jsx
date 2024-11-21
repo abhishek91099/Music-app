@@ -10,15 +10,29 @@ export const CustomAudioPlayer = () => {
   const [progress, setProgress] = useState(0); // Track progress
   const audioRef = useRef(null);
 
+  // const togglePlayPause = () => {
+  //   const audio = audioRef.current;
+  //   if (isPlaying) {
+  //     audio.pause();
+  //   } else {
+  //     audio.play();
+  //   }
+  //   setIsPlaying(!isPlaying);
+  // };
   const togglePlayPause = () => {
     const audio = audioRef.current;
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
+
+    if (audio) {
+      if (audio.paused) {
+        audio.play();
+        setIsPlaying(true);
+      } else {
+        audio.pause();
+        setIsPlaying(false);
+      }
     }
-    setIsPlaying(!isPlaying);
   };
+
 
   const handleTimeUpdate = () => {
     const audio = audioRef.current;
@@ -53,7 +67,7 @@ export const CustomAudioPlayer = () => {
         className="text-white bg-blue-600 p-2 rounded-full mb-4"
       > */}
       <SkipPreviousIcon/>
-      <div className='flex flex-col cursor-pointer ' onClick={togglePlayPause}>
+      <div className='flex flex-col cursor-pointer ' onClick={togglePlayPause} >
       {isPlaying ?<PauseIcon/> 
       
       :<PlayArrowIcon/>
