@@ -1,6 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 
+
+/* Custom scrollbar styles */
+.scrollbar-custom::-webkit-scrollbar {
+  height: 8px;  /* Set the height of the horizontal scrollbar */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f1f1f1;  /* Track color */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #888;  /* Thumb color */
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: #555;  /* Thumb hover color */
+}
+
+/* For Firefox */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* For Internet Explorer 10+ */
+  scrollbar-width: none;      /* For Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* For Chrome, Safari, and Opera */
+}
+ 
+
 /* 
 @layer components {
     .custom-range::-webkit-slider-thumb {

@@ -8,4 +8,6 @@ router.register(r'artist',ArtistViewset)
 router.register(r'album',AlbumViewset)
 router.register(r'song',SongViewset)
 
-url_pattern=[]
+urlpattern=[
+    path('api/', include(router.urls)),
+]

@@ -17,8 +17,8 @@ class Album(models.Model):
 
 class Song(models.Model):
     title = models.CharField(max_length=255)
-    audio_path = models.FileField(upload_to='songs/')
-    album_art_path = models.ImageField(upload_to='album_art/')
+    audio_path = models.FileField(upload_to='song/')
+    album_art_path = models.ImageField(upload_to='song_album_art/')
     album = models.ForeignKey(Album, on_delete=models.SET_NULL, null=True, blank=True)
     artists = models.ManyToManyField(Artist, related_name="songs")
     release_date = models.DateField()
