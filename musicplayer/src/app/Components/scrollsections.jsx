@@ -2,8 +2,6 @@
 import {useRef} from "react";
 export const  Scrollsection = ({Component, Heading,value}) => {
   const scrollContainerRef = useRef(null);
-  // console.log(value,Heading)
-  // console.log(value[0],'first')
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
@@ -28,7 +26,7 @@ export const  Scrollsection = ({Component, Heading,value}) => {
         {/* Left Arrow */}
         <button
           onClick={scrollLeft}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-2 rounded-full text-white"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-2 rounded-full text-white  z-10"
         >
           ←
         </button>

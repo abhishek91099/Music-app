@@ -60,9 +60,78 @@ export const MusicbarProvider = ({ children }) => {
     }
   };
 
+
+  
+  // const handleTimeUpdate = () => {
+  //   if (audioRef.current) {
+  //     const currentTime = audioRef.current.currentTime; // Get the current time of the song
+  //     const duration = audioRef.current.duration; // Get the duration of the song
+  //     const progress = (currentTime / duration) * 100; // Calculate progress as a percentage
+  
+  //     // Update the progress state (could also update other states like current time)
+  //     setSong((prevState) => ({
+  //       ...prevState,
+  //       progress,
+  //     }));
+  //   }
+  // };
+  
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      const { currentTime, duration } = audioRef.current;
+      if (duration > 0) {
+        const progress = Math.floor((currentTime / duration) * 100);
+        setSong(prev => ({
+          ...prev,
+          progress: isNaN(progress) ? 0 : progress
+        }));
+      }
+    }
+  };
+  // // Handle when the user seeks (updates progress bar)
+  // const handleSeek = (event) => {
+  //   const value = event.target.value;
+  //   const duration = audioRef.current.duration;
+  //   const newTime = (value / 100) * duration; // Calculate the new time based on the progress bar value
+  //   audioRef.current.currentTime = newTime; // Update the audio's current time
+    
+  //   // Update the progress in the state
+  //   setSong((prevState) => ({
+  //     ...prevState,
+  //     progress: value, // Update progress as the user seeks
+  //   }));
+  // };
+
+  const handleSeek = (event) => {
+    if (audioRef.current) {
+      try {
+        const value = parseFloat(event.target.value);
+        const duration = audioRef.current.duration;
+        
+        if (!isNaN(duration)) {
+          const newTime = (value / 100) * duration;
+          audioRef.current.currentTime = newTime;
+          
+          // Ensure the audio continues playing after seek
+          if (song_info.isplaying) {
+            audioRef.current.play().catch(error => {
+              console.error('Seek play error:', error);
+            });
+          }
+          
+          setSong((prevState) => ({
+            ...prevState,
+            progress: value,
+          }));
+        }
+      } catch (error) {
+        console.error('Error seeking audio:', error);
+      }
+    }
+  };
   return (
     <MusicbarContext.Provider
-      value={{ song_info, handleSelect, handleTogglePlay, audioRef }}
+      value={{ song_info, handleSelect, handleTogglePlay, audioRef,handleSeek,handleTimeUpdate }}
     >
       {children}
     </MusicbarContext.Provider>
