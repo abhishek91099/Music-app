@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'songapi',
     'rest_framework',
     'corsheaders',
+    'userapi'
 ]
 
 MIDDLEWARE = [

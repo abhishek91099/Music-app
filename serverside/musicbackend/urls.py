@@ -7,12 +7,14 @@ from songapi import views  # import the views from your app
 from rest_framework import routers
 from django.conf.urls.static import static
 from django.conf import settings
+from userapi import views as userviews
 router = routers.DefaultRouter()
 router=routers.DefaultRouter()
 router.register(r'artist',views.ArtistViewset)
 router.register(r'album',views.AlbumViewset)
 router.register(r'song',views.SongViewset)
-
+router.register(r'playlist',userviews.PlayListViewset)
+router.register(r'user',userviews.UserViewset)
 from django.http import HttpResponse
 
 def home(request):
