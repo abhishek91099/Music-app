@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-^z^m4v8yrrglw4kks@5e*s3oih1@z-$tmk)c%s=s(2!hl$*xex
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.20.10.2']
 
 
 
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'songapi',
     'rest_framework',
     'corsheaders',
-    'userapi'
+    'userapi',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     'accept',
 #     'origin',
 # ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
